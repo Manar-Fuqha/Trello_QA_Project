@@ -9,5 +9,9 @@ class sharedActions{
         cy.get(` [data-card-id=${Id}]`).click();
         return this;
     }
+    clickOnActionsButton(){
+        cy.findByTestId("card-back-actions-button").click()
+        return this ;
+    }
 }
 export default sharedActions;

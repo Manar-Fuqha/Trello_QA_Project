@@ -2,7 +2,6 @@
 
 import { Given , When , Then} from "cypress-cucumber-preprocessor/steps"
 import createBoardActions from "../../../pageObjects/createBoard/Actions.cy"
-import { should } from "chai";
 
 const createBoardAction =new createBoardActions();
 const boardTitle = "First Board cy"
