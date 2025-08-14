@@ -26,7 +26,7 @@ before(()=>{
             })
         })
     })
-
+    cy.wait(2000)
 })
 Given("The user navigated to the board",()=>{
     sharedactions.openBoard(boardUrl)
@@ -41,5 +41,6 @@ Then("The template name should be changed",()=>{
     createTemplateAssertion.checkIfListContainTemplateName(templateName , listId)
 })
 after("delete board", ()=>{
+    cy.wait(3000)
     datautiles.deleteBoard(boardId)
 })

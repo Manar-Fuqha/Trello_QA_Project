@@ -32,7 +32,7 @@ before(()=>{
         })
 
     })
-
+    cy.wait(2000)
 })
 
 
@@ -57,4 +57,8 @@ Then("The template should be hidden from list",()=>{
 })
 Then("The template should be appeare in card template dialog", ()=>{
     hideTemplateAssertion.checkIfTemplateExistInCardTemplateDialog(templateName,listId)
+})
+after(()=>{
+    cy.wait(3000)
+    datautiles.deleteBoard(boardId)
 })

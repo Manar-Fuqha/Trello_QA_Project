@@ -29,10 +29,12 @@ before(()=>{
     })
     })
      })
+     cy.wait(2000)
 })
 
 Given("The user navigated to the board", ()=>{
     sharedAction.openBoard(boardUrl)
+    cy.screenshot("Before Delete Card",{Option:'fullpage'})
 })
 When("Clicks on card name", ()=>{
     sharedAction.clickOnTemplateOrCard(cardId)
@@ -42,13 +44,16 @@ When("Clicks on Archive card", ()=>{
 })
 When("Clicks on delete card", ()=>{
     deleteCardAction.clickOnDeleteButton()
+    
 })
 When("Clicks on Confirm deletion button", ()=>{
     deleteCardAction.clickOnConfirmDeletionButton()
 })
 Then("The card should be removed", ()=>{
+    cy.screenshot("After Delete Card",{Option:'fullpage'})
     deleteCardAssertion.checkIfCardIsRemoved(listId)
 })
 after(()=>{
+    cy.wait(3000)
     datautiles.deleteBoard(boardId);
 })

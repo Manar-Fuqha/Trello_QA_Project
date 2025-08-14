@@ -32,14 +32,16 @@ before(()=>{
         })
 
     })
-    cy.wait(1500)
+    cy.wait(2000)
 })
 
 Given("The user navigated to the board", ()=>{
     sharedactions.openBoard(boardUrl)
 })
-When("Clicks on edit template icon" , ()=>{
+When("Clicks on template" , ()=>{
     sharedactions.clickOnTemplateOrCard(templateId);
+})
+When("Clicks on Action button" , ()=>{
     sharedactions.clickOnActionsButton()
 })
 When("Clicks on Move Option" , ()=>{
@@ -54,7 +56,7 @@ When("Select the New List" , ()=>{
 
 })
 When("Clicks on Move button" , ()=>{
-    moveTemplateAction.clickOnButton()
+    moveTemplateAction.clickOnMoveButton()
 })
 Then("The template should shown in new List" , ()=>{
     moveTemplateAssertion.checkIfTheTemplateAppeareInDestinationList(secondListId , templateId)
@@ -63,5 +65,6 @@ Then("the template should removed from old list" , ()=>{
     moveTemplateAssertion.checkIfTheTemplateRemovedFromOldList(firstListId , templateId)
 })
 after(()=>{
+    cy.wait(3000)
     datautiles.deleteBoard(boardId)
 })

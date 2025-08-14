@@ -1,12 +1,6 @@
 class moveTemplateActions{
 
-    clickOnEditTemplateIcon(templateId){
-        cy.get(`[data-card-id="${templateId}"]`)
-  .find("[data-testid='quick-card-editor-button']")
-  .click({ force: true });
-        return this;
-    }
-
+  
     clickOnMoveButtonFromDialog(){
         cy.findByTestId("card-back-move-card-button").click()
         return this;
@@ -15,7 +9,7 @@ class moveTemplateActions{
     clickOnListSelectOptions(){
         cy.wait(2000)
         cy.findByTestId(
-        "move-card-popover-select-list-destination-select--input-container"
+        "move-card-popover-select-list-destination"
         ).click();
         return this;
     }
@@ -27,7 +21,7 @@ class moveTemplateActions{
         return this;
     }
 
-    clickOnButton(){
+    clickOnMoveButton(){
         cy.findByTestId("move-card-popover-move-button").click();
         return this;
     }

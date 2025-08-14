@@ -21,7 +21,7 @@ before(()=>{
             listId = response.body.id;
         })
     })
-   
+   cy.wait(2000 )
 })
 Given("The user navigated to the board", ()=>{
     sharedactions.openBoard(boardUrl)
@@ -46,4 +46,8 @@ Then("the list should contain the template name", ()=>{
 })
 Then("the 'This is a Template card.' should be visible", ()=>{
     createTemplateAssertion.checkIfTemplateBannerIfExist().checkIfTemplateBannerIfVisible()
+})
+after(()=>{
+    cy.wait(3000)
+    datautiles.deleteBoard(boardId)
 })

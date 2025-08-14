@@ -2,6 +2,7 @@ class sharedActions{
 
     openBoard(boardUrl){
         cy.visit(boardUrl)
+        cy.wait(2000)
         return this;
     }
 
